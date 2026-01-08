@@ -1,5 +1,5 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <a href="{{ route('dashboard') }}" class="brand-link text-center">
+    <a href="{{ route('admin.dashboard') }}" class="brand-link text-center">
         <span class="brand-text font-weight-light">Halaman Admin</span>
     </a>
 
@@ -10,7 +10,7 @@
 
                 <!-- Dashboard -->
                 <li class="nav-item">
-                    <a href="{{ route('dashboard') }}"
+                    <a href="{{ route('admin.dashboard') }}"
                        class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Dashboard</p>
@@ -19,8 +19,8 @@
 
                 <!-- Category -->
                 <li class="nav-item">
-                    <a href="{{ route('categories.index') }}"
-                       class="nav-link {{ request()->routeIs('categories.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.categories.index') }}"
+                       class="nav-link {{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-tags"></i>
                         <p>Category</p>
                     </a>
@@ -28,16 +28,16 @@
 
                 <!-- Menu Cafe -->
                 <li class="nav-item">
-                    <a href="{{ route('menus.index') }}"
-                       class="nav-link {{ request()->routeIs('menus.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.menus.index') }}"
+                       class="nav-link {{ request()->routeIs('admin.menus.*') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-utensils"></i>
                         <p>Menu Cafe</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-    <a href="{{ route('users.index') }}"
-       class="nav-link {{ request()->routeIs('users.*') ? 'active' : '' }}">
+    <a href="{{ route('admin.users.index') }}"
+       class="nav-link {{ request()->routeIs('admin.users.*') ? 'active' : '' }}">
         <i class="nav-icon fas fa-users"></i>
         <p>User</p>
     </a>
