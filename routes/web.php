@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -57,22 +58,22 @@ Route::middleware(['auth', 'admin'])
             ->name('users.role');
 
         // Categories (CRUD)
-        Route::get('/categories', [CategoryController::class, 'index'])
-            ->name('categories.index');
+        Route::resource('categories', CategoryController::class)
+            ->except(['create', 'edit', 'show']);
 
-        Route::post('/categories', [CategoryController::class, 'store'])
-            ->name('categories.store');
+        Route::patch('/categories/{category}/toggle', 
+            [CategoryController::class, 'toggleStatus']
+        )->name('categories.toggle');
 
-        Route::put('/categories/{category}', [CategoryController::class, 'update'])
-            ->name('categories.update');
+        // Menus (FULL BACKEND)
 
-        Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])
-            ->name('categories.destroy');
 
-        // Menus
-        Route::get('/menus', function () {
-            return view('admin.menus.index');
-        })->name('menus.index');
+        Route::resource('menus', MenuController::class)
+            ->except(['show', 'create', 'edit']);
+
+        Route::patch('menus/{menu}/toggle', 
+            [MenuController::class, 'toggle']
+        )->name('menus.toggle');
     });
 
 /*
