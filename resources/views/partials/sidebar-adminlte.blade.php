@@ -11,7 +11,7 @@
                 <!-- Dashboard -->
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}"
-                       class="nav-link {{ request()->routeIs('dashboard') ? 'active' : '' }}">
+                       class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
@@ -42,6 +42,14 @@
         <p>User</p>
     </a>
 </li>
+
+       <li class="nav-item">
+                    <a href="#"
+                       class="nav-link {{ request()->routeIs('admin.pelanggan.*') ? 'active' : '' }}">
+                        <i class="nav-icon fas fas fa-comment"></i>
+                        <p>Chat Pelanggan</p>
+                    </a>
+                </li>
 
 
             </ul>
