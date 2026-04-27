@@ -13,7 +13,9 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return auth()->check() 
+        ? redirect('/admin/dashboard') 
+        : redirect('/login');
 });
 
 /*
